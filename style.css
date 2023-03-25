@@ -1,0 +1,10 @@
+.jumbotron {
+  background-image: url('https://scontent.ffor5-1.fna.fbcdn.net/v/t39.30808-6/301853607_473790328090673_2383471255170361227_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeGC1nYV9cie_1062U9vyoPsQ-auThiEtXZD5q5OGIS1dmXJmP9SjgJb9wQ6bSLQTQc&_nc_ohc=HJZGWlhlC5sAX_KSAMo&_nc_zt=23&_nc_ht=scontent.ffor5-1.fna&oh=00_AfBYq361GdGjbeMnU1wzykxqktc8kPn3m_n3oXcBUaHRUw&oe=641B49F1');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+
+.card {
+  margin-bottom: 30px;
+}
