@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora</title>
+	<style>
+
+	body {
+		align-items: center;
+	}
+        
+		table {
+			border-collapse: collapse;
+			margin: 40px auto;
+            border: 1px solid;
+		}
+
+		button {
+			font-size: 24px;
+			width: 50px;
+			height: 50px;
+			border: rgb(15, 185, 9);
+			background-color: #eb5555;
+		}
+
+		button:hover {
+			background-color: #4323b6;
+		}
+
+		input[type="text"] {
+			display: block;
+			margin: 20px auto;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<td><button>1</button></td>
+			<td><button>2</button></td>
+			<td><button>3</button></td>
+			<td><button>+</button></td>
+		</tr>
+		<tr>
+			<td><button>4</button></td>
+			<td><button>5</button></td>
+			<td><button>6</button></td>
+			<td><button>-</button></td>
+		</tr>
+		<tr>
+			<td><button>7</button></td>
+			<td><button>8</button></td>
+			<td><button>9</button></td>
+			<td><button>*</button></td>
+		</tr>
+		<tr>
+			<td><button>C</button></td>
+			<td><button>0</button></td>
+			<td><button>=</button></td>
+			<td><button>/</button></td>
+		</tr>
+	</table>
+
+	
+	
+	<script>
+		let display = document.createElement('input');
+display.setAttribute('type', 'text');
+display.setAttribute('readonly', true);
+display.style.width = '200px';
+display.style.height = '50px';
+display.style.fontSize = '24px';
+display.style.textAlign = 'right';
+document.body.appendChild(display);
+
+let buttons = document.querySelectorAll('button');
+let operator = '';
+let operand1 = 0;
+let operand2 = 0;
+
+buttons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        if (button.textContent >= '0' && button.textContent <= '9') {
+            display.value += button.textContent;
+        } else if (button.textContent === '+' || button.textContent === '-' || button.textContent === '*' || button.textContent === '/') {
+            operator = button.textContent;
+            operand1 = parseInt(display.value);
+            display.value = '';
+        } else if (button.textContent === '=') {
+            operand2 = parseInt(display.value);
+            let result = 0;
+            switch (operator) {
+                case '+':
+                    result = operand1 + operand2;
+                    break;
+                case '-':
+                    result = operand1 - operand2;
+                    break;
+                case '*':
+                    result = operand1 * operand2;
+                    break;
+                case '/':
+                    result = operand1 / operand2;
+                    break;
+            }
+            display.value = result.toString();
+        } else if (button.textContent === 'C') {
+            display.value = '';
+            operator = '';
+            operand1 = 0;
+            operand2 = 0;
+        }
+    });
+});
+
+	</script>
+</body>
+</html>
