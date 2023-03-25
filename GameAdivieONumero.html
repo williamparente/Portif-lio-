@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adivinhe o número</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h1>Adivinhe o número!</h1>
+	<p>Eu estou pensando em um número entre 1 e 100. Tente adivinhar em até 10 tentativas.</p>
+	<input type="text" id="guess">
+	<button onclick="checkGuess()">Adivinhar!</button>
+	<p id="message"></p>
+	<script>
+		// gerar um número aleatório entre 1 e 100
+		var number = Math.floor(Math.random() * 100) + 1;
+
+		// número de tentativas que o jogador tem
+		var guesses = 10;
+
+		function checkGuess() {
+			// obter o número que o jogador digitou
+			var guess = parseInt(document.getElementById("guess").value);
+
+			// verificar se o número está correto
+			if (guess === number) {
+				document.getElementById("message").innerHTML = "Parabéns! Você acertou!";
+				return;
+			}
+
+			// verificar se o jogador ainda tem tentativas
+			if (guesses === 0) {
+				document.getElementById("message").innerHTML = "Suas tentativas acabaram. O número era " + number + ".";
+				return;
+			}
+
+			// decrementar o número de tentativas restantes
+			guesses--;
+
+			// dar uma dica para o jogador
+			if (guess > number) {
+				document.getElementById("message").innerHTML = "O número é menor. Tente novamente.";
+			} else {
+				document.getElementById("message").innerHTML = "O número é maior. Tente novamente.";
+			}
+		}
+	</script>
+</body>
+</html>
